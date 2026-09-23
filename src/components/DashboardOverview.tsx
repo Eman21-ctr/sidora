@@ -109,41 +109,16 @@ export const DashboardOverview = ({
 
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-12">
-      {/* Top Banner Alert / Action Prompt */}
-      <div className="bg-gradient-to-r from-emerald-800 via-teal-900 to-slate-900 text-white rounded-2xl p-6 shadow-md relative overflow-hidden">
+      {/* Top Banner Alert / Header Card */}
+      <div className="bg-gradient-to-r from-emerald-800 via-teal-900 to-slate-900 text-white rounded-2xl p-5 sm:p-6 shadow-xs relative overflow-hidden">
         <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white to-transparent pointer-events-none" />
-        <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div className="space-y-1.5 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold border border-emerald-400/30">
-              <Sparkles className="w-3.5 h-3.5" />
-              Sidora: Pemantauan Real-Time Pasien RSJ Aktif
-            </div>
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
-              Dasbor Komunikasi &amp; Kepatuhan Pasien Rawat Jalan
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-300">
-              Data pemantauan langsung dari Supabase Database: Jadwal Minum Obat Harian, Kontrol Dokter Psikiatri, dan Pengambilan Obat Iterasi Farmasi.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-2.5">
-            <button
-              onClick={() => onNavigate('pasien')}
-              className="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold border border-white/20 transition-all flex items-center gap-1.5 cursor-pointer"
-              title="Buka daftar data pasien dan caregiver"
-            >
-              <UserCheck className="w-3.5 h-3.5 text-emerald-300" />
-              Data Pasien
-            </button>
-            <button
-              onClick={() => onNavigate('otomasi')}
-              className="px-3.5 py-2 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-200 text-xs font-semibold border border-emerald-400/30 transition-all flex items-center gap-1.5 cursor-pointer"
-              title="Konfigurasi jadwal pengiriman pesan otomatis"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-teal-300" />
-              Setting Otomasi &rarr;
-            </button>
-          </div>
+        <div className="relative z-10 space-y-1">
+          <h2 className="text-lg sm:text-2xl font-bold tracking-tight text-white">
+            Dasbor Komunikasi &amp; Kepatuhan Pasien Rawat Jalan
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-300">
+            Pemantauan kepatuhan minum obat harian, jadwal kontrol dokter psikiatri, dan pengambilan obat iterasi farmasi.
+          </p>
         </div>
       </div>
 
