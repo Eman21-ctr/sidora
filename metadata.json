@@ -1,0 +1,8 @@
+{
+  "name": "Remix Sidora",
+  "description": "Sidora - Sistem otomasi komunikasi WhatsApp RSJ Naimata untuk pengingat minum obat harian jam 06:00 pagi, kontrol dokter spesialis, dan iterasi resep farmasi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
