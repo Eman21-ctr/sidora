@@ -1,5 +1,6 @@
 import { Activity, Radio, HelpCircle, Send, Users, Calendar, MessageSquare, Smartphone, FileBarChart2, Settings2, BellRing, Clock, Sparkles } from 'lucide-react';
 import { BSPConfig } from '../types';
+import { SidoraLogo } from './SidoraLogo';
 
 export type NavTab = 'dashboard' | 'pasien' | 'otomasi' | 'simulator' | 'laporan';
 
@@ -53,24 +54,13 @@ export const Navbar = ({
       {/* Top Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Brand */}
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white shadow-md shadow-emerald-500/20">
-              <BellRing className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <h1 className="font-bold text-slate-900 text-base sm:text-lg leading-tight tracking-tight">
-                  Sidora
-                </h1>
-                <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
-                  RSJ Naimata
-                </span>
-              </div>
-              <p className="text-xs text-slate-500 hidden sm:block">
-                Sistem Notifikasi WhatsApp RSJ Naimata
-              </p>
-            </div>
+          {/* Brand Logo & Logotext */}
+          <div 
+            className="cursor-pointer"
+            onClick={() => onSelectTab('dashboard')}
+            title="Kembali ke Dasbor Utama"
+          >
+            <SidoraLogo size="md" />
           </div>
 
           {/* Center/Right controls */}

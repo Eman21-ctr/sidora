@@ -16,6 +16,9 @@ import { Patient, WhatsAppMessage } from './types';
 import { RSJ_INFO, INITIAL_PATIENTS } from './data/initialData';
 import { useSupabaseData } from './hooks/useSupabaseData';
 import { getTodayDateStr, computeRealDailyAnalytics } from './utils/analyticsHelper';
+import { SidoraLogo } from './components/SidoraLogo';
+import { PWAInstallBanner } from './components/PWAInstallBanner';
+
 
 export default function App() {
   // Navigation
@@ -475,21 +478,32 @@ export default function App() {
   // ============================================================
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-slate-900 flex flex-col items-center justify-center gap-6">
+      <div className="min-h-screen bg-slate-900 flex flex-col items-center justify-center gap-6 p-4">
         <div className="relative">
-          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl shadow-emerald-500/30 animate-pulse">
-            <Database className="w-10 h-10 text-white" />
+          <div className="w-24 h-24 rounded-3xl bg-gradient-to-tr from-emerald-600 via-teal-600 to-emerald-500 flex items-center justify-center p-4 text-white shadow-2xl shadow-emerald-500/30 border border-emerald-400/30 animate-pulse">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-md">
+              <rect x="17" y="6" width="6" height="28" rx="3" fill="white" />
+              <rect x="6" y="17" width="28" height="6" rx="3" fill="white" />
+              <circle cx="20" cy="20" r="4.5" fill="#34d399" />
+              <circle cx="20" cy="20" r="2" fill="white" />
+              <circle cx="20" cy="6" r="1.8" fill="#a7f3d0" />
+              <circle cx="20" cy="34" r="1.8" fill="#a7f3d0" />
+              <circle cx="6" cy="20" r="1.8" fill="#a7f3d0" />
+              <circle cx="34" cy="20" r="1.8" fill="#a7f3d0" />
+            </svg>
           </div>
-          <div className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-slate-800 border-2 border-emerald-500 flex items-center justify-center">
-            <Loader2 className="w-3.5 h-3.5 text-emerald-400 animate-spin" />
+          <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-slate-900 border-2 border-emerald-400 flex items-center justify-center shadow-lg">
+            <Loader2 className="w-4 h-4 text-emerald-400 animate-spin" />
           </div>
         </div>
         <div className="text-center space-y-2">
-          <h2 className="text-xl font-bold text-white">Memuat Data Sidora</h2>
-          <p className="text-sm text-slate-400">Menghubungkan ke Supabase Cloud Database...</p>
+          <h2 className="text-2xl font-extrabold text-white tracking-tight">
+            SIDO<span className="text-emerald-400">RA</span>
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-400">Menghubungkan ke Supabase Cloud Database...</p>
         </div>
-        <div className="w-48 h-1.5 bg-slate-700 rounded-full overflow-hidden">
-          <div className="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full animate-pulse" style={{ width: '65%' }} />
+        <div className="w-52 h-1.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700/50">
+          <div className="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-400 rounded-full animate-pulse" style={{ width: '75%' }} />
         </div>
       </div>
     );
@@ -662,6 +676,8 @@ export default function App() {
         </div>
       </footer>
 
+      {/* Floating PWA Install Banner */}
+      <PWAInstallBanner />
 
     </div>
   );
