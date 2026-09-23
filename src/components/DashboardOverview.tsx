@@ -128,20 +128,20 @@ export const DashboardOverview = ({
 
           <div className="flex flex-wrap items-center gap-2.5">
             <button
-              onClick={() => onNavigate('otomasi')}
-              className="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold border border-white/20 transition-all flex items-center gap-1.5"
-              title="Konfigurasi jadwal pengiriman pesan otomatis jam 06:00 dan H-3"
+              onClick={() => onNavigate('pasien')}
+              className="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold border border-white/20 transition-all flex items-center gap-1.5 cursor-pointer"
+              title="Buka daftar data pasien dan caregiver"
             >
-              <Sparkles className="w-3.5 h-3.5 text-teal-300" />
-              Setting Jadwal Otomatis
+              <UserCheck className="w-3.5 h-3.5 text-emerald-300" />
+              Data Pasien
             </button>
             <button
-              onClick={onTriggerAutoSend}
-              className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 text-slate-950 text-xs sm:text-sm font-bold shadow-lg shadow-emerald-500/30 transition-all flex items-center gap-2"
-              title="Eksekusi pengiriman batch otomatis sekarang ke WhatsApp pasien & caregiver"
+              onClick={() => onNavigate('otomasi')}
+              className="px-3.5 py-2 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-200 text-xs font-semibold border border-emerald-400/30 transition-all flex items-center gap-1.5 cursor-pointer"
+              title="Konfigurasi jadwal pengiriman pesan otomatis"
             >
-              <Send className="w-4 h-4 text-slate-950" />
-              ⚡ Demo: Kirim Jam 06:00 Sekarang
+              <Sparkles className="w-3.5 h-3.5 text-teal-300" />
+              Setting Otomasi &rarr;
             </button>
           </div>
         </div>

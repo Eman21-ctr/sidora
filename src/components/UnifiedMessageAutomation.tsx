@@ -164,14 +164,14 @@ export const UnifiedMessageAutomation = ({
               {currentSettings.isActive ? 'Hentikan Otomasi Sementara' : 'Aktifkan Pengiriman Otomatis'}
             </button>
 
-            {/* Fast Demo Trigger */}
+            {/* Fast Batch Run Trigger */}
             <button
               onClick={onTriggerManualRun}
-              className="px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-white text-xs font-semibold border border-white/20 transition-all flex items-center justify-center gap-2 shadow-xs"
-              title="Khusus Presentasi: Menjalankan eksekusi pengiriman otomatis jam 06:00 sekarang juga tanpa menunggu besok pagi"
+              className="px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-white text-xs font-semibold border border-white/20 transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+              title="Uji coba langsung eksekusi pengiriman batch hari ini"
             >
               <Sparkles className="w-3.5 h-3.5 text-teal-300" />
-              <span>⚡ Demo: Kirim Jam 06:00 Sekarang</span>
+              <span>Uji Eksekusi Jadwal Hari Ini</span>
             </button>
           </div>
 
