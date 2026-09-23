@@ -103,83 +103,42 @@ export const UnifiedMessageAutomation = ({
     <div className="space-y-6 max-w-7xl mx-auto pb-12">
       
       {/* Top Hero Banner with Master Switch */}
-      <div className={`rounded-3xl p-6 sm:p-7 text-white shadow-lg transition-all duration-300 relative overflow-hidden ${
+      <div className={`rounded-2xl p-5 sm:p-6 text-white shadow-xs transition-all duration-300 relative overflow-hidden ${
         currentSettings.isActive 
           ? 'bg-gradient-to-r from-emerald-800 via-teal-900 to-slate-900 border border-emerald-500/30' 
           : 'bg-gradient-to-r from-slate-800 via-slate-800 to-slate-900 border border-slate-700'
       }`}>
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative z-10">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 relative z-10">
           
-          <div className="space-y-2 max-w-3xl">
-            <div className="flex flex-wrap items-center gap-2.5">
-              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold ${
-                currentSettings.isActive 
-                  ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/40' 
-                  : 'bg-amber-500/20 text-amber-300 border border-amber-400/40'
-              }`}>
-                <span className={`w-2 h-2 rounded-full ${currentSettings.isActive ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`} />
-                {currentSettings.isActive ? 'SISTEM OTOMASI AKTIF' : 'OTOMASI DIHENTIKAN SEMENTARA'}
-              </span>
-
-              <span className="text-xs text-slate-300">
-                • Disetting 1x di awal, pesan terkirim otomatis sesuai jam tanpa manual harian
-              </span>
-            </div>
-
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2.5">
-              <BellRing className="w-6 h-6 text-emerald-400 shrink-0" />
-              Pengaturan Otomasi Pesan WhatsApp Pasien RSJ
+          <div className="space-y-1 max-w-2xl">
+            <h2 className="text-lg sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+              <BellRing className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400 shrink-0" />
+              Pengaturan Otomasi Pesan WhatsApp
             </h2>
 
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Konfigurasi ini bertindak sebagai otak sistem. Anda cukup menentukan jam kirim pengingat minum obat 
-              (default jam <strong className="text-white">06:00 Pagi</strong>) serta rentang hari kontrol dan iterasi obat 
-              (<strong className="text-white">H-3 sampai H-1</strong>). Pesan akan meluncur otomatis ke nomor pasien atau caregiver secara otomatis setiap hari.
+            <p className="text-xs sm:text-sm text-slate-300">
+              Tentukan jadwal jam kirim harian (default pukul 06:00) dan template pesan pengingat minum obat, kontrol dokter, serta iterasi resep.
             </p>
-
-            <div className="flex flex-wrap items-center gap-4 text-xs text-slate-300 pt-1">
-              <div className="flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-teal-300" />
-                <span>Terakhir dieksekusi: <strong className="text-white">{currentSettings.terakhirDieksekusi || 'Hari ini, 06:00 WIB'}</strong></span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Total terkirim otomatis: <strong className="text-white">{currentSettings.totalPesanTerkirimOtomatis} pesan</strong></span>
-              </div>
-            </div>
           </div>
 
-          {/* Master Action Box */}
-          <div className="flex flex-col sm:flex-row lg:flex-col items-stretch sm:items-center gap-3 w-full sm:w-auto shrink-0">
-            {/* Master Toggle Button */}
-            <button
-              onClick={handleToggleActive}
-              className={`px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 shadow-md transition-all ${
-                currentSettings.isActive
-                  ? 'bg-amber-500 hover:bg-amber-400 text-slate-950 shadow-amber-500/20'
-                  : 'bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-emerald-500/20'
-              }`}
-            >
-              <Power className="w-4 h-4" />
-              {currentSettings.isActive ? 'Hentikan Otomasi Sementara' : 'Aktifkan Pengiriman Otomatis'}
-            </button>
-
-            {/* Fast Batch Run Trigger */}
-            <button
-              onClick={onTriggerManualRun}
-              className="px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-white text-xs font-semibold border border-white/20 transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer"
-              title="Uji coba langsung eksekusi pengiriman batch hari ini"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-teal-300" />
-              <span>Uji Eksekusi Jadwal Hari Ini</span>
-            </button>
-          </div>
+          {/* Master Toggle Button */}
+          <button
+            onClick={handleToggleActive}
+            className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer shrink-0 ${
+              currentSettings.isActive
+                ? 'bg-amber-500 hover:bg-amber-400 text-slate-950 shadow-amber-500/20'
+                : 'bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-emerald-500/20'
+            }`}
+          >
+            <Power className="w-4 h-4" />
+            {currentSettings.isActive ? 'Hentikan Otomasi Sementara' : 'Aktifkan Pengiriman Otomatis'}
+          </button>
 
         </div>
 
         {/* Saved Alert Toast */}
         {savedAlert && (
-          <div className="mt-4 p-2.5 bg-emerald-500/20 border border-emerald-400/50 rounded-xl text-emerald-200 text-xs font-semibold flex items-center gap-2 animate-in fade-in duration-200">
+          <div className="mt-3 p-2 bg-emerald-500/20 border border-emerald-400/40 rounded-xl text-emerald-200 text-xs font-semibold flex items-center gap-2 animate-in fade-in duration-200">
             <CheckCircle2 className="w-4 h-4 text-emerald-300" />
             Pengaturan berhasil diperbarui dan tersimpan aman!
           </div>
